@@ -1,6 +1,6 @@
 // Перед запуском необходимо заполнить столбец «Прогноз» в отчёте.
 // Блоки независимы: повторяющиеся имена не конфликтуют.
-
+ 
 console.log("Эксперимент 1. Параметры и возвращаемое значение");
 {
   function sum(a, b) {
@@ -9,16 +9,17 @@ console.log("Эксперимент 1. Параметры и возвращае�
   console.log(sum(2, 3));
   console.log(sum("2", 3));
 }
-
+ 
 console.log("Эксперимент 2. Тело стрелочной функции");
 {
   // Здесь намеренно пропущен return. Исправление входит в задание 1.
+  // Исправлено: добавлен return, иначе square(4) возвращал undefined.
   const square = (value) => {
-    value * value;
+    return value * value;
   };
   console.log(square(4));
 }
-
+ 
 console.log("Эксперимент 3. Два имени одного объекта");
 {
   const product = { name: "Папка", stock: 3 };
@@ -27,7 +28,7 @@ console.log("Эксперимент 3. Два имени одного объек
   console.log(product.stock);
   console.log(product === alias);
 }
-
+ 
 console.log("Эксперимент 4. Копия массива с объектом");
 {
   const products = [{ name: "Папка", stock: 3 }];
@@ -37,7 +38,7 @@ console.log("Эксперимент 4. Копия массива с объект
   console.log(products === copy);
   console.log(products[0] === copy[0]);
 }
-
+ 
 console.log("Эксперимент 5. Копия объекта и порядок свойств");
 {
   const product = { name: "Папка", stock: 3 };
@@ -46,7 +47,7 @@ console.log("Эксперимент 5. Копия объекта и порядо
   console.log(product.stock, first.stock, second.stock);
   console.log(product === first);
 }
-
+ 
 console.log("Эксперимент 6. Параметр по умолчанию");
 {
   function makeCaption(text = "Без названия") {
@@ -57,3 +58,4 @@ console.log("Эксперимент 6. Параметр по умолчанию"
   console.log(makeCaption(null));
   console.log(makeCaption(""));
 }
+ 
