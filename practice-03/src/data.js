@@ -7,7 +7,7 @@ export const demoTasks = [
   { id: 10, title: "Оформить README", completed: true, priority: "medium" },
 ];
 
-// Вариант 5: Разработка командного прототипа. K = 4 — первые четыре задачи уже выполнены.
+
 export const variantNumber = 5;
 
 export const variantTasks = [

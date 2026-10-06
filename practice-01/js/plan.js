@@ -1,8 +1,8 @@
 "use strict";
 
-const totalTasks = 5;
+const totalTasks = 7;
 const completedTasks = 2;
-const dailyLimit = 1001;
+const dailyLimit = 2;
 
 function isValidCount(value) {
   return typeof value === "number" && Number.isInteger(value);

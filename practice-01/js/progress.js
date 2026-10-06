@@ -1,7 +1,7 @@
 "use strict";
 
-const totalTasks = 12;
-const completedTasks = 5;
+const totalTasks = 7;
+const completedTasks = 2;
 
 function isValidCount(value) {
   return typeof value === "number" && Number.isInteger(value);

@@ -108,7 +108,7 @@ console.table(demoTasks);
  
 console.log("\n\n########## Индивидуальный вариант (№", variantNumber, ") ##########");
 runScenario(variantTasks, {
-  newTask: { id: 80, title: "Подготовить итоговую демонстрацию", priority: "high" },
+  newTask: { id: 80, title: "Подготовить итоговую демонстрацию прототипа", priority: "medium" },
   completeId: 11,
   renameId: 23,
   renameTitle: "Обновлённое название задачи 23",
