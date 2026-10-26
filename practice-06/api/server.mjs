@@ -1,5 +1,3 @@
-// Готовый локальный API для ПР6. Реализация сервера относится к ПР9–ПР10.
-// Данные хранятся в памяти и восстанавливаются после перезапуска или debug/reset.
 import http from "node:http";
 import { pathToFileURL } from "node:url";
 import { categories as seedCategories, tasks as seedTasks } from "./data.js";

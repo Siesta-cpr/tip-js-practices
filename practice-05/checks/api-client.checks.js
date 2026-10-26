@@ -1,4 +1,3 @@
-// Модульные проверки API-клиента ПР5. Реальная сеть не используется.
 import assert from "node:assert/strict";
 import { ApiError, buildUrl, createApiClient } from "../src/api-client.js";
 import { createTaskApi } from "../src/task-api.js";

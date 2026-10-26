@@ -40,8 +40,7 @@ const storageKey = isCheckRun
   ? `tip-js-practice-04:checks:${datasetName}`
   : `tip-js-practice-04:${datasetName}`;
 
-// Готовая граница запуска: даже незавершённый или ошибочный модуль хранилища
-// не должен оставлять страницу без диагностического сообщения.
+
 let loaded;
 try {
   loaded = loadTasks(window.localStorage, storageKey, initialTasks);
@@ -161,8 +160,6 @@ function persistCurrentTasks(successMessage) {
   return saved;
 }
 
-// Готовая вспомогательная функция из логики ПР3. После полной перерисовки
-// возвращает фокус на действие той же задачи либо на активный фильтр.
 function restoreTaskFocus(id, action) {
   const actionButton = elements.list.querySelector(
     `[data-task-id="${id}"] button[data-action="${action}"]`,
@@ -174,7 +171,6 @@ function restoreTaskFocus(id, action) {
 function handleFormSubmit(event) {
   event.preventDefault();
 
-  // Disabled-поле id не попадает в FormData: в режиме редактирования id берётся из editingId.
   const formData = new FormData(elements.form);
   const draft = {
     id: formData.get("id"),
@@ -276,7 +272,6 @@ function handleResetClick() {
     return;
   }
 
-  // Исходный набор не сохраняется обратно: ключ остаётся отсутствующим.
   currentTasks = initialTasks.map((task) => ({ ...task }));
   currentFilter = "all";
   setFormMode();

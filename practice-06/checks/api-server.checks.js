@@ -1,4 +1,3 @@
-// Проверки готового учебного API ПР6. Код сервера изменять не требуется.
 import assert from "node:assert/strict";
 import { createApiServer } from "../api/server.mjs";
 

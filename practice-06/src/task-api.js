@@ -79,7 +79,6 @@ function normalizeFilters(filters) {
   return query;
 }
 
-// Копирует только поля, которые разрешено передавать в теле запроса.
 function pickFields(source, names) {
   if (source === null || typeof source !== "object") {
     throw new TypeError("Данные задачи должны быть объектом.");
@@ -91,16 +90,13 @@ function pickFields(source, names) {
   return body;
 }
 
-// Методы результата:
-// getTasks, getTaskById, getCategories, loadInitialData, createTask, updateTask,
-// setTaskCompleted, deleteTask и resetDemoData.
-// Последний аргумент каждого метода данных — { signal }.
+
 export function createTaskApi(client) {
   if (!client || typeof client.requestJson !== "function") {
     throw new TypeError("Нужен клиент с методом requestJson.");
   }
 
-  // Общая проверка ответа коллекции: { data: [...], meta: { total } }.
+
   function readCollection(payload, isItem, name) {
     if (!payload || typeof payload !== "object" || !Array.isArray(payload.data)) {
       throw invalidResponse(`Ответ ${name} не содержит массив data.`);
@@ -141,7 +137,7 @@ export function createTaskApi(client) {
     return readCollection(payload, isCategory, "категорий");
   }
 
-  // Оба запроса начинаются до общего ожидания.
+
   async function loadInitialData(filters = {}, options = {}) {
     const [taskResult, categories] = await Promise.all([
       getTasks(filters, options),
@@ -150,7 +146,6 @@ export function createTaskApi(client) {
     return { tasks: taskResult.tasks, categories, meta: taskResult.meta };
   }
 
-  // id и completed назначает сервер, поэтому в теле создания их нет.
   async function createTask(draft, { signal } = {}) {
     const body = pickFields(draft, ["title", "priority", "categoryId"]);
     return readTask(await client.requestJson("/tasks", { method: "POST", body, signal }));

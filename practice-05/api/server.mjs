@@ -1,5 +1,4 @@
-// Готовый локальный API для ПР5–ПР6. Реализация сервера не входит в ПР5.
-// Сервер хранит неизменяемый учебный набор в памяти и слушает только 127.0.0.1.
+
 import http from "node:http";
 import { pathToFileURL } from "node:url";
 import { categories, tasks } from "./data.js";

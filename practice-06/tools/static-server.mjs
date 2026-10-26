@@ -1,4 +1,3 @@
-// Готовый сервер статических файлов. Не использовать для публикации в интернете.
 import http from "node:http";
 import { readFile, realpath } from "node:fs/promises";
 import path from "node:path";

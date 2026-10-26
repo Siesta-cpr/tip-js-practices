@@ -2,8 +2,7 @@ export const STORAGE_VERSION = 1;
 
 const ALLOWED_PRIORITIES = new Set(["low", "medium", "high"]);
 
-// Все функции принимают объект storage явно, чтобы их можно было проверить
-// без обращения к глобальному window.localStorage.
+
 
 function isValidTask(task) {
   return (

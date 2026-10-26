@@ -25,7 +25,6 @@ function isPlainObject(value) {
     && Object.getPrototypeOf(value) === Object.prototype;
 }
 
-// Проверяет baseUrl: абсолютный http(s)-адрес без query и hash.
 function parseBaseUrl(baseUrl) {
   if (typeof baseUrl !== "string") {
     throw new TypeError("baseUrl должен быть строкой.");
@@ -45,8 +44,6 @@ function parseBaseUrl(baseUrl) {
   return url;
 }
 
-// Создаёт URL относительно baseUrl и добавляет непустые параметры query.
-// Значения кодируются средствами URL и URLSearchParams, а не вручную.
 export function buildUrl(baseUrl, path, query = {}) {
   const base = parseBaseUrl(baseUrl);
   if (typeof path !== "string" || path.trim() === "") {
@@ -67,8 +64,6 @@ export function buildUrl(baseUrl, path, query = {}) {
   return url.toString();
 }
 
-// fetchFn передаётся явно, чтобы модуль можно было проверить без реальной сети.
-// Возвращаемый объект: { requestJson(path, { query, signal, timeoutMs } = {}) }.
 export function createApiClient({
   baseUrl,
   fetchFn = globalThis.fetch,
@@ -83,7 +78,6 @@ export function createApiClient({
   }
   const defaultTimeoutMs = timeoutMs;
 
-  // Отказ fetch или чтения тела после отмены: различаются внешняя отмена и тайм-аут.
   function abortError(url, cause, externalSignal, timeoutSignal) {
     if (externalSignal?.aborted) {
       return new ApiError("Запрос отменён.", { kind: "aborted", url, cause });

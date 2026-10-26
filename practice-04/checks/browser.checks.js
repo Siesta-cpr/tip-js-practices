@@ -1,4 +1,3 @@
-// Браузерные проверки ПР4. Открывать checks.html через локальный сервер.
 import { getVisibleTasks } from "../src/task-selectors.js";
 import {
   createTaskElement,

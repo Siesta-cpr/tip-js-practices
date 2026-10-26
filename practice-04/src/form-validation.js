@@ -4,15 +4,12 @@ function isValidId(id) {
   return Number.isSafeInteger(id) && id > 0;
 }
 
-// Пустая строка и строка из пробелов не превращаются в 0 через Number.
 function parseId(rawId) {
   if (typeof rawId === "string" && rawId.trim() === "") return NaN;
   if (typeof rawId !== "string" && typeof rawId !== "number") return NaN;
   return Number(rawId);
 }
 
-// Чистая проверка данных формы. DOM и показ сообщений выполняются в main.js.
-// draft: { id, title, priority }; editingId: null либо id редактируемой задачи.
 export function validateTaskDraft(draft, tasks, editingId = null) {
   const errors = {};
   let id;

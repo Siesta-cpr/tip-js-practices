@@ -1,7 +1,6 @@
 const ALLOWED_PRIORITIES = new Set(["low", "medium", "high"]);
 
-// Возвращает { valid, value, errors }.
-// value содержит нормализованные title, priority и числовой categoryId.
+
 export function validateTaskDraft(draft, categories) {
   const errors = {};
 
@@ -19,7 +18,7 @@ export function validateTaskDraft(draft, categories) {
     errors.priority = "Выберите приоритет: низкий, средний или высокий.";
   }
 
-  // Значение select приходит строкой; пустая строка не превращается в 0.
+
   const rawCategoryId = draft?.categoryId;
   const categoryId = rawCategoryId === "" || rawCategoryId == null ? NaN : Number(rawCategoryId);
   const knownCategories = Array.isArray(categories) ? categories : [];

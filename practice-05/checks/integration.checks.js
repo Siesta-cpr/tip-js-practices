@@ -1,4 +1,3 @@
-// Интеграционные проверки: готовый API и реализованный студентом клиент.
 import assert from "node:assert/strict";
 import { createApiServer } from "../api/server.mjs";
 import { ApiError, createApiClient } from "../src/api-client.js";

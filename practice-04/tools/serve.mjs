@@ -1,5 +1,3 @@
-// Готовый локальный сервер статических файлов. Разработка сервера не входит в ПР4.
-// Привязка только к 127.0.0.1. Не использовать для публикации в интернете.
 import http from "node:http";
 import { readFile, realpath } from "node:fs/promises";
 import path from "node:path";

@@ -11,10 +11,7 @@ export function messageForError(error) {
   return "Не удалось выполнить операцию.";
 }
 
-// view — адаптер из dom-app.js. Контроллер не должен обращаться к document.
-// Обязательные методы результата:
-// start, applyFilters, refresh, submit, beginEdit, cancelEdit,
-// toggleTask, deleteTask, resetData и destroy.
+
 const VIEW_METHODS = [
   "setListState",
   "setTasks",
@@ -53,8 +50,6 @@ export function createAppController({ api, view, validateDraft = validateTaskDra
   let activeLoad = null;
   let loadSequence = 0;
 
-  // Загрузка с текущими фильтрами. Пока категории не получены,
-  // используется loadInitialData, затем только getTasks.
   async function loadCurrentTasks() {
     activeLoad?.abort();
     const controller = new AbortController();
@@ -89,7 +84,7 @@ export function createAppController({ api, view, validateDraft = validateTaskDra
     }
   }
 
-  // Общая схема мутации: блокировка, запрос, сообщение, повторный GET, разблокировка.
+
   async function runMutation(action, successMessage) {
     view.setMutationPending(true);
     try {

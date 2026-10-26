@@ -1,4 +1,3 @@
-// Модульные проверки ПР6. Реальная сеть и настоящий DOM не используются.
 import assert from "node:assert/strict";
 import { ApiError, buildUrl, createApiClient } from "../src/api-client.js";
 import { createAppController, messageForError } from "../src/app-controller.js";

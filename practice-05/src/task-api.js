@@ -73,18 +73,12 @@ function normalizeFilters(filters) {
   return query;
 }
 
-// client — объект, созданный createApiClient.
-// Контракт результата:
-// getTasks(filters) -> Promise<{ tasks, meta }>
-// getTaskById(id) -> Promise<task>
-// getCategories() -> Promise<category[]>
-// loadInitialData(filters) -> Promise<{ tasks, categories, meta }>
+
 export function createTaskApi(client) {
   if (!client || typeof client.requestJson !== "function") {
     throw new TypeError("Нужен клиент с методом requestJson.");
   }
 
-  // Общая проверка ответа коллекции: { data: [...], meta: { total } }.
   function readCollection(payload, isItem, name) {
     if (!payload || typeof payload !== "object" || !Array.isArray(payload.data)) {
       throw invalidResponse(`Ответ ${name} не содержит массив data.`);
@@ -124,7 +118,6 @@ export function createTaskApi(client) {
     return readCollection(payload, isCategory, "категорий");
   }
 
-  // Оба запроса начинаются до общего ожидания.
   async function loadInitialData(filters = {}) {
     const tasksPromise = getTasks(filters);
     const categoriesPromise = getCategories();

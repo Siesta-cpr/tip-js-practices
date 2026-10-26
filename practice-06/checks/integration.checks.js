@@ -1,4 +1,3 @@
-// Интеграционные проверки клиента с локальным API ПР6.
 import assert from "node:assert/strict";
 import { createApiServer } from "../api/server.mjs";
 import { ApiError, createApiClient } from "../src/api-client.js";

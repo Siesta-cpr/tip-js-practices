@@ -15,7 +15,6 @@ function createActionButton(action, label) {
   return button;
 }
 
-// Пользовательские и серверные строки добавляются только через textContent.
 export function createTaskElement(task, category) {
   const li = document.createElement("li");
   li.className = "task-card";

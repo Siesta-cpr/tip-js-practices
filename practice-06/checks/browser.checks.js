@@ -1,4 +1,3 @@
-// Браузерные проверки ПР6. Открывать checks.html через npm start.
 import { createTaskElement, renderTaskList } from "../src/task-view.js";
 
 const API_URL = "http://127.0.0.1:5505/api";

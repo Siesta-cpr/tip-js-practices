@@ -1,6 +1,3 @@
-// Готовый проверочный сценарий. Установка пакетов не требуется.
-// В этом файле нет реализации функций task-service.js.
-// Первоначально проверки не проходят: функции в заготовке ещё не реализованы.
 import assert from "node:assert/strict";
 import {
   createTask, findTaskById, getPendingTasks, getTaskTitles, getTaskStats,
@@ -22,7 +19,6 @@ function check(name, action) {
   }
 }
 
-// Каждый вызов создаёт новый независимый набор данных.
 function fixture() {
   return [
     { id: 1, title: "Изучить функции", completed: true, priority: "medium" },
@@ -347,13 +343,6 @@ check("35. Работа с другим набором, без зависимо�
   assert.deepEqual(tasks, before);
 });
 
-// Три собственных проверки можно добавить здесь, до итогового вывода,
-// либо выполнить отдельно и описать в отчёте. Общие проверки удалять не нужно.
-// Пример формы записи (не готовая проверка задания):
-// check("Собственный случай: ...", () => {
-//   const result = ...;
-//   assert.deepEqual(result, ...);
-// });
 
 console.log(`\nПроверок пройдено: ${passed}; не пройдено: ${failed}.`);
 if (failed > 0) {
