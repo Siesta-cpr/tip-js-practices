@@ -1,6 +1,6 @@
 "use strict";
 
-const studentName = "Илья";
+const studentName = "Осенний Илья";
 const groupName = "ЭФБО-13-25";
 const practiceNumber = 1;
 
